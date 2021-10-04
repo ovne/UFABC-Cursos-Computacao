@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+
+
 int main(){
     int flow = 1;
     char expressao[20];
