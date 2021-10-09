@@ -54,5 +54,4 @@ int main(){
         ordemCrescente(conta_elem, vetor);
         imprimeVetor(conta_elem, vetor);
     }while(numero != -1);
-    
 }
