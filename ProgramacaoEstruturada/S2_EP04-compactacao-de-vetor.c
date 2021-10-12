@@ -39,9 +39,6 @@ void compactar_vetor(int v[], int n){
         buffer[i+1] = pos-freq;
         freq=pos;
         i+=2;
-        //for(int j=0; j<n; j++)printf("%d |",buffer[j]);
-        //printf("here\n");
-
     }
     for(int j=0; j<n; j++)v[j]=buffer[j];
 }
