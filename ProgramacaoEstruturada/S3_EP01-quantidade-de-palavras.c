@@ -16,7 +16,8 @@ int main(){
     int flow = 1;
     while(flow){
         char letra = frase[i];
-        if(letra==' ' || letra=='.' || letra=='\0'){
+        char prox = frase[i+1];
+        if(letra==' ' || letra=='.' && prox!='\0'){
             qtd_palavras++;
             i++;
         }

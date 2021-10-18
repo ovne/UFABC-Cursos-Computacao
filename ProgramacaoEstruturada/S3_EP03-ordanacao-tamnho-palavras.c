@@ -28,7 +28,7 @@ int verificar_ordenacao_tamanho(char texto[]) {
 
     // extraindo o tamanho de cada palavra - nesse contexto, são sempre separadas por espaços
     do{
-        while(texto[i]==' '){
+        while(texto[i]==' ' || texto[i]=='\0'){
             len_palavras[idx] = i - len_ult_palavra;
             len_ult_palavra = i+1; // +1 para que considere o espaço em branco na proxima subtração
             idx++;
@@ -43,19 +43,19 @@ int verificar_ordenacao_tamanho(char texto[]) {
 
     for(int i=0; i<qtd_palavras; i++){
         int num = len_palavras[i];
-        if(num == len_palavras[i+1])continue;
+        if(num == len_palavras[i+1])continue;//redundancia
         if(num > len_palavras[i+1] && len_palavras[i+1]!=-1)cresce = 0;
     }
 
     for(int i=0; i<qtd_palavras; i++){
         int num = len_palavras[i];
-        if(num == len_palavras[i+1])continue;
+        if(num == len_palavras[i+1])continue;//redundancia
         if(num < len_palavras[i+1] && len_palavras[i+1]!=-1)decresce = 0;
     }
 
     for(int k=0; k<qtd_palavras; k++)printf("%d |", len_palavras[k]);
 
-    if(cresce==1)return 1;
+    if(cresce==1)return 1;//redundancia
     else if(decresce==1)return 2;
     else return 3;
 } 
@@ -70,5 +70,4 @@ int main(){
 
     //vetor ordenacao programacao -> 5,9,11
     //vetor string matriz codigo programacao estruturada
-
 }
