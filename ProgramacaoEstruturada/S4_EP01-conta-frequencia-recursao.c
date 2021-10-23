@@ -5,11 +5,10 @@ do que 10.
 Por exemplo, contafreq(12343, 3) = 2. */
 
 #include<stdio.h>
-//#include "contafreq.h"
 
 int contafreq(int num, int digito) {
-    //BASE: num ser igual a 0, se di
-
+    //BASE: num ser igual a 0. Retorna 0 se digito nao for 0 e 1 caso seja;
+    //RECURSAO: decomponho o numero em suas unidades e valido se esse digito é o buscado
     if(num==0){
         return (digito == 0) ? 1 : 0;
     }else{

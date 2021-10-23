@@ -12,13 +12,12 @@ Por exemplo,
 //#include "dec2bin.h"
 
 int dec2bin(int n_decimal) {
-    //BASE: se decimal for 2, então 2/2 = 1 2%2 = 0 devo retornar 10
+    //BASE: se decimal for 2, então 2/2 = 1 2%2 = 0 devo retornar 100
     if(n_decimal==0){
         return 0;
     }else{
         return (n_decimal%2) + dec2bin(n_decimal/2)*10;
-    } 
-    
+    }    
 }
 
 int main(){
