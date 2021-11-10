@@ -269,7 +269,15 @@ char* str_concatenate (const char *stra, const char *strb) {
  * a função retorna -1.
  */
 int str_find_first (const char *str, const char c) {
+    if(str == NULL)return -1;
     
+    int i=0;
+    while(str[i]!='\0'){
+        if(str[i] == c) return i;
+        i++;
+    }
+    // nesse ponto toda a string foi percorrida e 'c' nao foi encontrado
+    return -1;
 }
 
 
@@ -285,7 +293,18 @@ int str_find_first (const char *str, const char c) {
  * a função retorna -1.
  */
 int str_find_last (const char *str, const char c) {
-    
+    if(str == NULL)return -1;
+
+    int j=0;
+    int pos = -1;
+
+    while(str[j]!='\0'){
+        if(str[j] == c)
+            pos = j;
+        j++;
+    }
+    //nesse ponto 'pos' ja guarda a ultima ocorrencia de 'c' e caso 'c' esteja ausente 'pos' se mante como -1.
+    return pos;
 }
 
 
@@ -300,7 +319,17 @@ int str_find_last (const char *str, const char c) {
  * seis palavras. retorna -1 caso str seja nula.
  */
 int str_count_words (const char *str) {
-    
+    if(str == NULL)return -1;
+    // a identificação de uma palavra nessa função vai seguir a 'definição' para palavra que esta na documentação
+    // porem, vale observar que essa definição é bastante vaga, o que pode limitar o comportamento da função.
+    int i=0;
+    int qtd=0;
+    while(str[i] != '\0'){
+        // se for um caractere qlqr seguido imediatamente por um '\s' então, conto como uma palavra
+        if(str[i]!=32 && str[i+1]==32 || str[i+1] == '\0') qtd++;
+        i++;
+    }
+    return qtd;
 }
 
 int main(){
@@ -325,7 +354,6 @@ int main(){
     printf("RETORNO str_upper: %d\n", str_upper(str));
     printf("ALTERACAO str_upper: %s\n", str);
 
-
     // Testando str_upper()
     printf("RETORNO str_lower: %d\n", str_lower(str));
     printf("ALTERACAO str_lower: %s\n", str);
@@ -339,13 +367,13 @@ int main(){
     printf("RETORNO str_concatenate: %s\n", concat);
     free(concat);
 
-    
+    // Testando função str_find_first()
+    printf("RETORNO str_find_first: %d\n", str_find_first(str, 's'));
 
+    // Testando função str_find_last()
+    printf("RETORNO str_find_last: %d\n", str_find_last(str, 'e'));
 
+    // Testando função str_count_words()
+    printf("RETORNO str_count_words: %d\n", str_count_words("   o gato preto cruzou a   estrada"));
 
-
-
-
-
-    
 }
