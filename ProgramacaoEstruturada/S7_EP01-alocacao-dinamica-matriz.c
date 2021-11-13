@@ -51,6 +51,7 @@ int main() {
     int n_linhas, n_colunas;
     scanf("%d %d", &n_linhas, &n_colunas);
     
+    // o retorno da criar_matriz() é um ponteiro de ponteiro. 
     double **mat = criar_matriz(n_linhas, n_colunas);
     
     printMat(mat, n_linhas, n_colunas);
