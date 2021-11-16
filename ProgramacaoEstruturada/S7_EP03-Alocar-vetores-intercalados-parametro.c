@@ -61,16 +61,17 @@ int main(){
     int n_a=0;
     printf("n_a:\n");
     scanf("%d", &n_a);
+
     int *v_a = malloc(sizeof(int) * n_a);
     printf("valores v_a:\n");
     for(int i=0; i<n_a; i++)
         scanf("%d", &v_a[i]);
 
     int n_b=0;
-    printf("n_a:\n");
+    printf("n_b:\n");
     scanf("%d", &n_b);   
     int *v_b = malloc(sizeof(int) * n_b);
-    printf("valores v_a:\n");
+    printf("valores v_b:\n");
     for(int i=0; i<n_b; i++)
         scanf("%d", &v_a[i]);
     
