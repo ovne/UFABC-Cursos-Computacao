@@ -26,7 +26,6 @@ void imprimir(struct TimeFutebol dados_time){
     dados_time.empates);
 }
 
-
 int main() {
     struct TimeFutebol meuTime;
 
