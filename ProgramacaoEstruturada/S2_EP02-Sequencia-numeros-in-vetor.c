@@ -10,29 +10,28 @@ SAIDA: 3
 */
 
 
-//#include "sequencia.h"
 #include <stdio.h>
+//#include "sequencia.h"
 
+
+int verificar_sequencia(int vetor1[], int n1, int vetor2[], int n2) {
+    int num_sequencias = 0;
+    //para cada nº em vet1 valida se este e os posteriores são iguais aos nºs em vet2. 
+    for(int i =0; i < n1; i++){
+        int esta_contida = 1;
+        for(int j = 0; j < n2; j++){ 
+            if(vetor1[i+j]!=vetor2[j])esta_contida = 0;
+        }
+        if(esta_contida)num_sequencias++;
+    }
+    return num_sequencias;
+}
 
 void imprimeVetor(int qtd, int vetor[]){
     for(int i=0; i< qtd-1; i++){
         printf("%d ",vetor[i]);
     }
     printf("%d\n",vetor[qtd-1]);
-}
-
-
-int verificar_sequencia(int vetor1[], int n1, int vetor2[], int n2) {
-    int num_sequencias = 0;
-    for(int i =0; i < n1-n2; i++){
-        int esta_contida = 1;
-        for(int j = 0; j < n2; j++){
-            if(vetor1[i+j]!=vetor2[j])esta_contida = 0;
-        }
-        if(esta_contida)num_sequencias++;
-    }
-    return num_sequencias;
-    
 }
 
 int main(){
