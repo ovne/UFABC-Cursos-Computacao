@@ -2,7 +2,7 @@
 Escreva um programa que leia uma expressão aritmética com as operações +, -, /, * e terminadas com =.
 O programa deve imprimir o operacao da expressão.
 
-Não haverá espaços em branco entre os operandos e os operadores e também não haverá parênteses na 
+Não haverá espaços em branco entre os operandos e os next_opres e também não haverá parênteses na 
 equação. Lembre-se de seguir as regras de precedência (multiplicação e divisão devem ser realizadas
 antes de soma e subtração).
 
@@ -16,38 +16,53 @@ números inteiros.
 
 int main(){
     int a, b, tot=0;
-    char operador, last_opr;
+    char next_opr, last_opr;
 
-    scanf("%d%c",&a,&operador);
-    while(operador!='='){
-        last_opr = operador;
-        scanf("%d%c",&b,&operador);
+    scanf("%d%c",&a,&next_opr);
+    while(next_opr!='='){
+        last_opr = next_opr;
+        scanf("%d%c",&b,&next_opr);
 
         if(last_opr=='*' || last_opr=='/'){
             if(last_opr=='*'){
                 tot += a*b;
                 a = tot;
+                printf("last[%c]next[%c]\n",last_opr,next_opr);
+                printf("a[%d]\nb[%d]\ntot[%d]\n=======\n",a,b,tot);
+                
             }
             else{
                 tot += a/b;
                 a = tot;
+                printf("last[%c]next[%c]\n",last_opr,next_opr);
+                printf("a[%d]\nb[%d]\ntot[%d]\n=======\n",a,b,tot);
             }
         }
         else{ // não é * ou / => deve ser + ou -
-            if(last_opr=='+' && operador!='*' && operador!='/'){
+            if(last_opr=='+' && next_opr!='*' && next_opr!='/'){
+                // A + B +- C
                 tot = a+b;
                 a = tot;
+                printf("last[%c]next[%c]\n",last_opr,next_opr);
+                printf("a[%d]\nb[%d]\ntot[%d]\n=======\n",a,b,tot);
             }
-            else if(last_opr=='-' && operador!='*' && operador!='/') {
+            else if(last_opr=='-' && next_opr!='*' && next_opr!='/') {
+                // A - B +- C
                 tot = a-b;
                 a = tot;
+                printf("last[%c]next[%c]\n",last_opr,next_opr);
+                printf("a[%d]\nb[%d]\ntot[%d]\n=======\n",a,b,tot);
             }else{
-                // a + b * (next)b
+                // A + B */ (next)b
                 tot = a;
                 if(last_opr=='-')a = -b;
                 else a = b;
+                printf("last[%c]next[%c]\n",last_opr,next_opr);
+                printf("a[%d]\nb[%d]\ntot[%d]\n=======\n",a,b,tot);
             }
         }
     }
     printf("%d", tot);
 }
+
+//30*2-90+5*4/2=
